@@ -38,27 +38,27 @@ deleteVote:
         method: delete
         cors: true
   stages:
-		exclude: # Specify stages that should exclude this function
-			- "prod-[0-9]*" # Regex
+    exclude: # Specify stages that should exclude this function
+      - "prod-[0-9]*" # Regex
 
 # Include all dev-.* except dev-123
 # Note that checks will run through the inclusion list first, then the exclusion list
 editVote:
-	handler: src/functionHandlers/editVote/index.handler
+  handler: src/functionHandlers/editVote/index.handler
   events:
     - http:
         path: /v1/vote
         method: patch
         cors: true
   stages: # Stage will be tested with both the include and exclude properties
-		include:
-			- "dev-.*"
-		exclude:
-			- "dev-123"
+    include:
+      - "dev-.*"
+    exclude:
+      - "dev-123"
 
 # Include dev-123 and all prod-.*
 summary:
-	handler: src/functionHandlers/summary/index.handler
+  handler: src/functionHandlers/summary/index.handler
   events:
     - http:
         path: /v1/summary
@@ -67,7 +67,7 @@ summary:
   stages:
     include:
       - "dev-123"
-			- "prod-.*"
+      - "prod-.*"
 ```
 
 ## Why?
@@ -92,5 +92,7 @@ offline: lambdaA, lambdaC
 
 Given that there isn't a common subset of functions, you cannot create a `base.yml`. If you create a `prod.yml` with `lambdaA` + `lambdaB`, and `staging.yml` with `lambdaB`, you will then need to maintain 2 separate definitions of `lambdaB` which would be error prone. This restricts you to having mutually exclusive sets of functions defined in different yml files, otherwise we tradeoff maintainability.
 
+[ico-serverless]: http://public.serverless.com/badges/v3.svg
+[ico-license]: https://img.shields.io/github/license/serverless-heaven/serverless-webpack.svg
 [link-serverless]: https://www.serverless.com/
 [link-license]: ./blob/master/LICENSE
