@@ -31,7 +31,7 @@ addVote:
 
 # Exclude all prod-[0-9]*
 deleteVote:
-	handler: src/functionHandlers/deleteVote/index.handler
+  handler: src/functionHandlers/deleteVote/index.handler
   events:
     - http:
         path: /v1/vote
