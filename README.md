@@ -95,4 +95,4 @@ Given that there isn't a common subset of functions, you cannot create a `base.y
 [ico-serverless]: http://public.serverless.com/badges/v3.svg
 [ico-license]: https://img.shields.io/github/license/serverless-heaven/serverless-webpack.svg
 [link-serverless]: https://www.serverless.com/
-[link-license]: ./blob/master/LICENSE
+[link-license]: ./LICENSE
